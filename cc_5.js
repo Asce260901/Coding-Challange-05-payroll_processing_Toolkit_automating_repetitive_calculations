@@ -11,20 +11,20 @@ function calculateBasePay(rate, hours) {
     const basePay = Math.min(hours,40);
     return basePay * rate;
 };
-//console.log(`${calculateBasePay(15.50,54)}`)
+//console.log(`Base pay: ${calculateBasePay(15.50,54)}`)
 
 // Overtime
 function calculateOverTimePay(rate, hours) {
     const overTime = Math.max(hours - 40, 0);
     return overTime * rate * 1.5;
 };
-//console.log(`${calculateOverTimePay(20, 62)}`)
+//console.log(`Overtime pay: ${calculateOverTimePay(20, 62)}`)
 
 // Taxes
 function calculateTaxes(grosspay) {
     return grosspay * 0.15; //15% 
 }
-//console.log(`${calculateTaxes(1000)}`)
+//console.log(`Net pay is: ${calculateTaxes(1460.00)}`)
 
 // Payroll one employee
     let i = 1; // counter for employees
@@ -33,7 +33,7 @@ function processPayroll(employee) {
     const overTime = calculateOverTimePay(employee.hourlyRate, employee.hoursWorked);
     const grossPay = basePay + overTime;
     const finalPay = grossPay - calculateTaxes(grossPay);
-    console.log(`\n---Employee ${i}---\nName: ${employee.eName} \nTotal Hours: ${employee.hoursWorked} \nBase Pay: ${basePay.toFixed(2)} \nOver Time Pay: ${overTime.toFixed(2)} \nGross Pay: ${grossPay.toFixed(2)} \nNet Pay: ${finalPay.toFixed(2)}`);
+    console.log(`\n---Employee ${i}---\nName: ${employee.eName} \nTotal Hours: ${employee.hoursWorked} \nBase Pay: ${basePay.toFixed(2)} \nOvertime Pay: ${overTime.toFixed(2)} \nGross Pay: ${grossPay.toFixed(2)} \nNet Pay: ${finalPay.toFixed(2)}`);
      i++;
     return (hardWorker(employee));
 };
