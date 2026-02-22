@@ -27,17 +27,18 @@ function calculateTaxes(grosspay) {
 //console.log(`${calculateTaxes(1000)}`)
 
 // Payroll one employee
+    let i = 1; // counter for employees
 function processPayroll(employee) {
     let basePay = calculateBasePay(employee.hourlyRate, employee.hoursWorked);
     let overTime = calculateOverTimePay(employee.hourlyRate, employee.hoursWorked);
     let grossPay = basePay + overTime;
     let finalPay = grossPay - calculateTaxes(grossPay);
-    return {
-        name: employee.eName,
-        basePay: basePay.toFixed(2),
-        overTime: overTime.toFixed(2),
-        grossPay: grossPay.toFixed(2),
-        finalPay: finalPay.toFixed(2)
-    };
+    console.log(`\n---Employee ${i}---\n Name: ${employee.eName} \n Base Pay: ${basePay.toFixed(2)} \n Over Time Pay: ${overTime.toFixed(2)} \n Gross Pay: ${grossPay.toFixed(2)} \n Net Pay: ${finalPay.toFixed(2)}`);
+    i++;
 };
-//console.log(processPayroll(employees[3]))
+//processPayroll(employees[3]);
+
+// Loop for all employees payroll
+for (const employee of employees) {
+    processPayroll(employee);
+};
