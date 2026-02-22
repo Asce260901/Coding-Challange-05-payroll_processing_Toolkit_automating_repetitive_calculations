@@ -33,8 +33,9 @@ function processPayroll(employee) {
     let overTime = calculateOverTimePay(employee.hourlyRate, employee.hoursWorked);
     let grossPay = basePay + overTime;
     let finalPay = grossPay - calculateTaxes(grossPay);
-    console.log(`\n---Employee ${i}---\n Name: ${employee.eName} \n Base Pay: ${basePay.toFixed(2)} \n Over Time Pay: ${overTime.toFixed(2)} \n Gross Pay: ${grossPay.toFixed(2)} \n Net Pay: ${finalPay.toFixed(2)}`);
-    i++;
+    console.log(`\n---Employee ${i}---\nName: ${employee.eName} \nTotal Hours: ${employee.hoursWorked} \nBase Pay: ${basePay.toFixed(2)} \nOver Time Pay: ${overTime.toFixed(2)} \nGross Pay: ${grossPay.toFixed(2)} \nNet Pay: ${finalPay.toFixed(2)}`);
+     i++;
+    return (hardWorker(employee));
 };
 //processPayroll(employees[3]);
 
@@ -42,3 +43,9 @@ function processPayroll(employee) {
 for (const employee of employees) {
     processPayroll(employee);
 };
+
+// Addition hard worker employee
+function hardWorker(employee) {
+    if (employee.hoursWorked > 50) {
+    console.log(`${employee.eName}, thank you for your hard work this week!`)
+};};
