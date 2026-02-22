@@ -1,1 +1,1 @@
-Basic Payroll processing code 
+Basic Payroll processing code, to test functions one by one just remvove the // before the console.log after each function
