@@ -29,10 +29,10 @@ function calculateTaxes(grosspay) {
 // Payroll one employee
     let i = 1; // counter for employees
 function processPayroll(employee) {
-    let basePay = calculateBasePay(employee.hourlyRate, employee.hoursWorked);
-    let overTime = calculateOverTimePay(employee.hourlyRate, employee.hoursWorked);
-    let grossPay = basePay + overTime;
-    let finalPay = grossPay - calculateTaxes(grossPay);
+    const basePay = calculateBasePay(employee.hourlyRate, employee.hoursWorked);
+    const overTime = calculateOverTimePay(employee.hourlyRate, employee.hoursWorked);
+    const grossPay = basePay + overTime;
+    const finalPay = grossPay - calculateTaxes(grossPay);
     console.log(`\n---Employee ${i}---\nName: ${employee.eName} \nTotal Hours: ${employee.hoursWorked} \nBase Pay: ${basePay.toFixed(2)} \nOver Time Pay: ${overTime.toFixed(2)} \nGross Pay: ${grossPay.toFixed(2)} \nNet Pay: ${finalPay.toFixed(2)}`);
      i++;
     return (hardWorker(employee));
